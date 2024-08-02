@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='phd-utils',
+    name='phd_utils',
     version='0.1.0',
     author='Juan Miguel Serrano',
     author_email='juan11iguel@gmail.com',

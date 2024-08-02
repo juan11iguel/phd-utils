@@ -16,14 +16,16 @@ def get_data(col, initial_datetime: datetime, final_datetime: datetime, vars:lis
     return [data for data in cursor]
 
 
-def get_data_db(initial_date: datetime, final_date: datetime, 
+def get_data_db(initial_date: datetime, final_date: datetime,
                 config: dict, var_ids:list[str] = None, signal_ids:list[str] = None,
-                db_url:str = 'mongodb://10.10.105.209:27017', 
+                db_url: str = 'mongodb://10.10.105.209:27017',
+                db_name: str = 'librescada',
+                collection_name: str = 'operation_data',
                 rename_signals_to_var_ids:bool = True, include_time:bool = True) -> pd.DataFrame:
     
     db_client = pymongo.MongoClient(db_url)
-    db = db_client['MED']
-    col_origin = db['operation_data']
+    db = db_client[db_name]
+    col_origin = db[collection_name]
     
     # TODO: Should be coherent, just variables
     supported_objects = [(None, 'signal_id'), ('variables', 'signal_id'), ('measurements', 'sensor_id'), ('inputs', 'input_id')]
