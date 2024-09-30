@@ -53,7 +53,7 @@ def variables_configuration_getter(config: dict, var_ids: list[str], signal_ids:
 
         try:
             var_ids_to_import = list(vars_config.keys()) if not ids_specified else var_ids
-            import_vars.extend([config[group_id][var_id][reference_id] for var_id in var_ids_to_import if
+            import_vars.extend([vars_config[var_id][reference_id] for var_id in var_ids_to_import if
                                 var_id in vars_config])
         except KeyError:
             logger.debug(f'No {group_id}-{reference_id} combo in config, trying next combination')
