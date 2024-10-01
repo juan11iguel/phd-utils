@@ -7,7 +7,7 @@ requires-python = ">=3.10"
 dependencies = [
     "loguru>=0.7.2",
     "pandas>=2.2.2",
-    "plotly>=5.24.0",
+    "plotly>=5.24.1",
     "pymongo>=4.8.0",
     "u8darts>=0.30.0",
 ]
